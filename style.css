@@ -1,0 +1,375 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+button,
+input,
+textarea {
+  outline: none;
+}
+
+/* --------- variables ----------- */
+:root {
+  --text-light-primary: #ffffffea;
+  --text-light-secondary: #ffffffa4;
+}
+
+.app-wrapper {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.315), rgba(0, 0, 0, 0.349)),
+    url("./bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+}
+
+/* ---------- Container Styles ----------- */
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+/* ----------------- Container End ------------ */
+
+/* ----------- Search Form ------------- */
+form {
+  width: 30%;
+  margin: 0px auto;
+}
+form > .input__wrapper {
+  width: 100%;
+  outline: 1px solid #fff;
+  border-radius: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.212);
+  transition: all 0.1s ease-in;
+}
+.input__wrapper:focus-within {
+  border: none;
+  outline: 2px solid #102a38bb;
+  outline-offset: 2px;
+}
+#query_field {
+  width: 80%;
+  font-size: 1.5rem;
+  font-style: italic;
+  border: none;
+  background-color: transparent;
+  color: var(--text-light-primary);
+  letter-spacing: 0.1rem;
+  padding: 1.4rem 2rem;
+}
+#query_field::placeholder {
+  color: rgba(247, 243, 243, 0.877);
+}
+#query_field:focus {
+  outline: none;
+}
+.search-btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  display: inline-block;
+  background-color: #102a38;
+  color: #fff;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.search-btn:hover {
+  background-color: #102a38;
+  opacity: 90%;
+}
+.search-btn:hover .fa-magnifying-glass {
+  transform: scale(1.05);
+}
+.fa-magnifying-glass {
+  font-size: 14px;
+}
+/* ----------- Search Form End ------------- */
+
+/* ----------- Current Weather Styles Start ------------- */
+.current__weather {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+}
+.current__weather--location,
+.current__weather--info {
+  background-color: rgba(25, 29, 29, 0.486);
+  border-radius: 10px;
+  backdrop-filter: blur(80%);
+}
+.current__weather--location {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+}
+.current__weather--location .location__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.location__info > .location__info--data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.location__info--data > .location__info--date {
+  text-transform: capitalize;
+  color: var(--text-light-secondary);
+  letter-spacing: 0.04rem;
+  font-size: 1.9rem;
+}
+.location__info--data > .location__info--population {
+  text-transform: capitalize;
+  font-weight: normal;
+  color: var(--text-light-secondary);
+  letter-spacing: 0.05rem;
+  font-size: 1.4rem;
+}
+
+.current__weather--info {
+  padding: 0rem 0rem 0rem 2.5rem;
+}
+.current__weather__info--wrapper {
+  position: relative;
+  height: 100%;
+}
+.times__wrapper {
+  position: absolute;
+  top: 35px;
+  right: 30px;
+}
+.times__wrapper > .times__sunset,
+.times__wrapper > .times__sunrise {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.times--svg {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.times__sunrise--time,
+.times__sunset--time {
+  font-size: 2rem;
+  color: var(--text-light-secondary);
+}
+
+.temperatures {
+  padding: 6.5rem 0rem 2rem 0rem;
+}
+.temperature--svg {
+  display: inline-block;
+  padding: 0 0rem 3rem 2.5rem;
+}
+.temperature-info {
+  margin-top: 2rem;
+  color: var(--text-light-secondary);
+}
+.temperature-info > p {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+.temperature-info > div {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 1.6rem;
+}
+
+/* ----------- Current Weather Styles End ------------- */
+
+/* ---------- Weekly Weather Styles Start ------------ */
+.weekly__weather {
+  width: 100%;
+  background-color: rgba(25, 29, 29, 0.486);
+  color: var(--text-light-secondary);
+  border-radius: 6px;
+  backdrop-filter: blur(80%);
+}
+
+.weekly__weather--wrapper {
+  padding: 1rem;
+}
+.weekly__weather--list {
+  display: flex;
+  align-items: center;
+  /* width: 1200; */
+  overflow-x: scroll;
+}
+
+.weekly__weather--list > * {
+  border: 1px solid #7c7c7c;
+  border-top: 0px;
+  border-bottom: 0;
+}
+::-webkit-scrollbar {
+  visibility: hidden;
+}
+
+.weather__per__day {
+  min-width: 25%;
+}
+.weather__per__day--wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 2.8rem;
+}
+.day {
+  color: red;
+  font-size: 2.1rem;
+}
+
+.day__weather {
+  font-size: 2.1rem;
+  letter-spacing: 0.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-light-primary);
+}
+.situations h4 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 1.3rem;
+  text-align: center;
+  font-weight: normal;
+}
+.situations p {
+  font-size: 1.6rem;
+}
+/* ---------- Weekly Weather Styles End ------------ */
+
+/* ------------ Utilities ----------- */
+.primary--heading {
+  font-size: 4.5rem;
+  color: var(--text-light-primary);
+  letter-spacing: 0.3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Mobile Styles ----------- */
+@media screen and (max-width: 576px) {
+  .app-wrapper {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  form {
+    width: 90%;
+  }
+  #query_field {
+    width: 100%;
+    padding: 1.1rem 2rem;
+    font-size: 1.3rem;
+  }
+  .search-btn {
+    display: none;
+  }
+  .fa-magnifying-glass {
+    font-size: 12px;
+  }
+
+  .current__weather {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .current__weather--location {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+  }
+  .location__info--data > .location__info--date {
+    letter-spacing: 0.02rem;
+    font-size: 1.5rem;
+  }
+  .location__info--data > .location__info--population {
+    letter-spacing: 0.03rem;
+    font-size: 1.2rem;
+  }
+
+  .times__wrapper {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+  .times__sunrise--time,
+  .times__sunset--time {
+    font-size: 1.2rem;
+  }
+  .temperatures {
+    padding: 2.8rem 0rem 2rem 0rem;
+  }
+  .temperature--svg {
+    padding: 0 0rem 1.4rem 2.5rem;
+  }
+  .temperature-info {
+    margin-top: 1.3rem;
+  }
+  .temperature-info > p {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .temperature-info > div {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 1.3rem;
+  }
+
+  /* ---- weekly styles for mobile start----- */
+
+  .weekly__weather--list {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .weekly__weather--list > * {
+    border: none;
+  }
+  .weekly__weather--list > li:not(:last-child) {
+    border-bottom: 1px solid #7c7c7c;
+    width: 100%;
+  }
+  .weather__per__day--wrapper {
+    padding: 2.5rem;
+    gap: 14px;
+  }
+
+  /* ------utilities ------- */
+  .primary--heading {
+    font-size: 2rem;
+  }
+}
